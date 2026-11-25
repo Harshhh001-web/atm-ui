@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM+ Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="dashboard" class="dashboard-page">
+    <header class="topbar">
+        <div class="brand-small">
+            <div class="mini-logo">🏦</div>
+            <div><strong>ATM+</strong><small>SECURE BANKING</small></div>
+        </div>
+        <div class="top-actions">
+            <span class="online"><i></i> Online</span>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard-shell">
+        <section class="hero-row">
+            <div>
+                <span class="eyebrow">PERSONAL BANKING</span>
+                <h1>Good morning, <span id="userName">Customer</span> 👋</h1>
+                <p class="muted">Manage your money with a few simple, secure actions.</p>
+            </div>
+            <div class="card-number">
+                <small>ACCOUNT CARD</small>
+                <strong id="maskedCard">•••• •••• •••• 3456</strong>
+            </div>
+        </section>
+
+        <section class="balance-card">
+            <div>
+                <span class="label">Available balance</span>
+                <h2 id="balance">₹0.00</h2>
+                <span class="balance-note">Available for transactions</span>
+            </div>
+            <div class="balance-icon">₹</div>
+        </section>
+
+        <section class="section-heading">
+            <div>
+                <h2>What would you like to do?</h2>
+                <p class="muted">Select a banking service</p>
+            </div>
+        </section>
+
+        <section class="service-grid">
+            <button class="service-card" data-action="balance">
+                <span class="service-icon blue">₹</span>
+                <strong>Balance Inquiry</strong>
+                <small>View available balance</small>
+            </button>
+            <button class="service-card" data-action="withdraw">
+                <span class="service-icon green">↙</span>
+                <strong>Cash Withdrawal</strong>
+                <small>Withdraw cash securely</small>
+            </button>
+            <button class="service-card" data-action="deposit">
+                <span class="service-icon purple">↗</span>
+                <strong>Cash Deposit</strong>
+                <small>Add money to account</small>
+            </button>
+            <button class="service-card" data-action="transfer">
+                <span class="service-icon orange">⇄</span>
+                <strong>Fund Transfer</strong>
+                <small>Send money to an account</small>
+            </button>
+            <button class="service-card" data-action="statement">
+                <span class="service-icon cyan">≡</span>
+                <strong>Mini Statement</strong>
+                <small>View recent transactions</small>
+            </button>
+            <button class="service-card" data-action="pin">
+                <span class="service-icon pink">⌘</span>
+                <strong>Change PIN</strong>
+                <small>Update your security PIN</small>
+            </button>
+            <button class="service-card" data-action="profile">
+                <span class="service-icon profile">👤</span>
+                <strong>My Profile</strong>
+                <small>View account details</small>
+            </button>
+        </section>
+
+        <section id="transactionPanel" class="transaction-panel hidden">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">TRANSACTION</span>
+                    <h2 id="transactionTitle">ATM Service</h2>
+                </div>
+                <button id="closePanel" class="icon-btn">×</button>
+            </div>
+            <div id="transactionContent"></div>
+        </section>
+
+        <section class="testing-note">
+            <div>🧪</div>
+            <div>
+                <strong>Software Testing Mode</strong>
+                <p>This project validates invalid inputs, limits, authentication failures and transaction errors.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

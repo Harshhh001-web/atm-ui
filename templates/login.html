@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Secure Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <section class="brand-panel">
+            <div class="brand-icon">🏦</div>
+            <span class="eyebrow">SECURE BANKING</span>
+            <h1>ATM<span>+</span></h1>
+            <p>A modern self-service banking experience built for speed, clarity and security.</p>
+            <div class="security-pills">
+                <span>🔒 Secure PIN</span>
+                <span>⚡ Instant</span>
+                <span>📋 Tested</span>
+            </div>
+        </section>
+
+        <section class="login-panel">
+            <div class="panel-top">
+                <span class="status-dot"></span>
+                <span>ATM TERMINAL ONLINE</span>
+            </div>
+
+            <h2>Welcome back</h2>
+            <p class="muted">Use your 12-digit card and secure 4-digit PIN to continue.</p>
+
+            <form id="loginForm">
+                <label for="cardNumber">Card Number</label>
+                <input id="cardNumber" inputmode="numeric" maxlength="12"
+                       placeholder="1234 5678 9012 " autocomplete="off">
+
+                <label for="pin">ATM PIN</label>
+                <input id="pin" type="password" inputmode="numeric" maxlength="4"
+                       placeholder="••••" autocomplete="off">
+
+                <button class="btn btn-primary" type="submit">Sign in securely →</button>
+            </form>
+
+            <div id="loginMessage" class="alert hidden"></div>
+
+            <div class="demo-box">
+                <strong>Demo credentials</strong>
+                <span>Card: 123456789012</span>
+                <span>PIN: 1234</span>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
